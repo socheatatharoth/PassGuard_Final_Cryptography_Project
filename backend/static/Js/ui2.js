@@ -1,35 +1,85 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const passwordInput = document.getElementById('passwordInput');
-  const togglePassword = document.getElementById('togglePassword');
-  const checkBtn = document.getElementById('checkStrengthBtn');
-  const strengthMeter = document.getElementById('strengthMeter');
+document.addEventListener("DOMContentLoaded",()=>{
 
-  // Toggle show/hide password
-  togglePassword.addEventListener('click', () => {
-    if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      togglePassword.innerHTML = '<i class="fas fa-eye-slash"></i>';
-    } else {
-      passwordInput.type = 'password';
-      togglePassword.innerHTML = '<i class="fas fa-eye"></i>';
-    }
-  });
+  const input=document.getElementById("passwordInput");
+  const toggle=document.getElementById("togglePassword");
+  const check=document.getElementById("checkStrengthBtn");
+  const dashboard=document.getElementById("dashboardSection");
 
-  // Check password strength
-  checkBtn.addEventListener('click', () => {
-    const val = passwordInput.value.trim();
-    let strength = "";
+  const dash={
+    passwordMasked:document.getElementById("dashPasswordMasked"),
+    strength:document.getElementById("dashStrength"),
+    reason:document.getElementById("dashReasonText"),
+    entropy:document.getElementById("dashEntropy"),
+    crackTime:document.getElementById("dashCrackTime"),
+    suggestions:document.getElementById("dashSuggestions"),
+    strengthBar:document.getElementById("dashStrengthBar"),
+    entropyBar:document.getElementById("dashEntropyBar"),
+    dashToggle:document.getElementById("dashTogglePassword")
+  };
 
-    if (!val) {
-      strength = "Please enter a password";
-    } else if (val.length > 10 && /[A-Z]/.test(val) && /\d/.test(val) && /[\W]/.test(val)) {
-      strength = "Strong";
-    } else if (val.length >= 6) {
-      strength = "Medium";
-    } else {
-      strength = "Weak";
-    }
+  // Input toggle
+  toggle.onclick=()=>{
+    input.type=input.type==="password"?"text":"password";
+    toggle.innerHTML=input.type==="text"?'<i class="fas fa-eye-slash"></i>':'<i class="fas fa-eye"></i>';
+  };
 
-    strengthMeter.textContent = strength;
-  });
+  // Dashboard toggle: show/hide password
+  let passwordVisible=false;
+  let currentPassword='';
+  dash.dashToggle.onclick=()=>{
+    passwordVisible=!passwordVisible;
+    dash.passwordMasked.innerText=passwordVisible?currentPassword:'••••••';
+    dash.dashToggle.innerHTML=passwordVisible?'<i class="fas fa-eye-slash"></i>':'<i class="fas fa-eye"></i>';
+  };
+
+  async function checkPassword(){
+    if(!input.value.trim()) return alert("Enter password!");
+    currentPassword=input.value.trim();
+
+    const res=await fetch("/check_password",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({password:currentPassword})
+    });
+
+    const data=await res.json();
+    dashboard.style.display="flex";
+
+    dash.passwordMasked.innerText='••••••';
+    passwordVisible=false;
+    dash.dashToggle.innerHTML='<i class="fas fa-eye"></i>';
+
+    dash.strength.innerText=data.strength;
+    dash.strength.style.color=data.strength==="Weak"?"#ff4b5c":
+                              data.strength==="Medium"?"#ffb400":"#00ff94";
+
+    dash.reason.innerText=data.reasonText;
+    dash.entropy.innerText=data.entropy;
+    dash.crackTime.innerText=data.crackTime;
+
+    // Strength bar
+    let strengthPercent=data.strength==="Weak"?33:
+                        data.strength==="Medium"?66:100;
+    dash.strengthBar.style.width=strengthPercent+"%";
+    dash.strengthBar.style.backgroundColor=dash.strength.style.color;
+
+    // Entropy bar
+    let entropyValue=parseFloat(data.entropy);
+    let entropyPercent=Math.min(100,(entropyValue/128)*100);
+    dash.entropyBar.style.width=entropyPercent+"%";
+    dash.entropyBar.style.backgroundColor="#00ff94";
+
+    dash.suggestions.innerHTML="";
+    (data.suggestions.length?data.suggestions:["No suggestions needed"])
+      .forEach(s=>{
+        let li=document.createElement("li");
+        li.innerText=s;
+        dash.suggestions.appendChild(li);
+      });
+
+    input.value="";
+  }
+
+  check.onclick=checkPassword;
+  input.addEventListener("keyup",(e)=>e.key==="Enter"?checkPassword():null);
 });
