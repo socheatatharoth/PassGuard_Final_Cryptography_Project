@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dictionary Check</title>
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="../static/css/dictionary_check.css">
   <link rel="stylesheet" href="../static/css/style.css">
@@ -14,79 +14,81 @@
   <!-- JS -->
   <script src="../static/Js/dictionary_check.js" defer></script>
 </head>
+
 <body>
 
-  <!-- Navbar -->
-  <header class="header">
-    <div class="header-inner container">
-      <div class="logo">PassGuard</div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#features">Features</a>
-        <a href="#aboutus">About Us</a>
-        <a href="#services">Our Services</a>
-        <a href="#contactus">Contact Us</a>
-        <a href="#faqs">FAQs</a>
-      </nav>
-    </div>
-  </header>
+<!-- Navbar -->
+<header class="header">
+  <div class="header-inner container">
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <section class="dictionary-section">
-      <div class="dictionary-card">
+    <!-- LOGO → HOME -->
+    <a href="/" class="logo">PassGuard</a>
 
-        <h2 class="card-title">
-          <i class="fa-solid fa-shield-halved"></i>
-          Dictionary / Breach Check
-        </h2>
-        <!-- <p class="card-desc">
-          Check whether a password or hash has appeared in known data breaches.
-        </p> -->
+    <nav class="nav" aria-label="Main navigation">
+      <!-- FEATURES → HOME + FEATURES SECTION -->
+      <a href="/#features">Features</a>
+      <a href="/About_Us">About Us</a>
+      <a href="/Service">Our Services</a>
+      <a href="/FaQs">FAQs</a>
+    </nav>
 
-        <!-- Mode Selection -->
-        <div class="mode-select">
-          <label>
-            <input type="radio" name="mode" value="plaintext" checked>
-            Plaintext Password
-          </label>
-          <label>
-            <input type="radio" name="mode" value="hash">
-            Hash Password
-          </label>
-        </div>
+  </div>
+</header>
 
-        <!-- Hash Type Dropdown -->
-        <div class="hash-type" id="hashType">
-          <label for="hashAlgo">Hash Algorithm</label>
-          <select id="hashAlgo">
-            <option value="md5">MD5</option>
-            <option value="sha1">SHA-1</option>
-            <option value="sha256">SHA-256</option>
-          </select>
-        </div>
+<!-- Main Content -->
+<main class="main-content">
+  <section class="dictionary-section">
+    <div class="dictionary-card">
 
-        <!-- Input -->
-        <div class="input-group">
-          <label for="passwordInput">Enter Value</label>
-          <input
-            type="text"
-            id="passwordInput"
-            placeholder="Enter password or hash"
-          />
-        </div>
+      <h2 class="card-title">
+        <i class="fa-solid fa-shield-halved"></i>
+        Dictionary / Breach Check
+      </h2>
 
-        <!-- Submit -->
-        <button class="check-btn" id="checkBtn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          Check Breach
-        </button>
-
-        <!-- Result -->
-        <div class="result-box" id="resultBox"></div>
-
+      <!-- Mode Selection -->
+      <div class="mode-select">
+        <label>
+          <input type="radio" name="mode" value="plaintext" checked>
+          Plaintext Password
+        </label>
+        <label>
+          <input type="radio" name="mode" value="hash">
+          Hash Password
+        </label>
       </div>
-    </section>
-  </main>
+
+      <!-- Hash Type Dropdown -->
+      <div class="hash-type" id="hashType">
+        <label for="hashAlgo">Hash Algorithm</label>
+        <select id="hashAlgo">
+          <option value="md5">MD5</option>
+          <option value="sha1">SHA-1</option>
+          <option value="sha256">SHA-256</option>
+        </select>
+      </div>
+
+      <!-- Input -->
+      <div class="input-group">
+        <label for="passwordInput">Enter Value</label>
+        <input
+          type="text"
+          id="passwordInput"
+          placeholder="Enter password or hash"
+        />
+      </div>
+
+      <!-- Submit -->
+      <button class="check-btn" id="checkBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Check Breach
+      </button>
+
+      <!-- Result -->
+      <div class="result-box" id="resultBox"></div>
+
+    </div>
+  </section>
+</main>
 
 </body>
 </html>

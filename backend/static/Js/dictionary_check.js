@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hashType.style.display = "none";
 
-  // Toggle hash dropdown correctly
+  // Toggle hash dropdown
   document.querySelectorAll('input[name="mode"]').forEach(radio => {
     radio.addEventListener("change", () => {
       const mode = document.querySelector('input[name="mode"]:checked').value;
@@ -55,4 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
       resultBox.textContent = "Server error. Try again.";
     }
   });
+
 });

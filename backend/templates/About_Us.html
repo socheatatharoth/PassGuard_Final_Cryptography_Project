@@ -24,15 +24,17 @@
   <!-- Header / Navbar -->
   <header class="header">
     <div class="header-inner container">
-      <div class="logo">PassGuard</div>
 
-      <nav class="nav">
-        <a href="../templates/index.html">Home</a>
-        <a href="#about" class="active">About Us</a>
-        <a href="/features">Features</a>
-        <a href="/contact">Contact</a>
-        <a href="/faq">FAQs</a>
-      </nav>
+      <!-- CHANGE 1: Logo redirects to Home -->
+      <a href="/" class="logo">PassGuard</a>
+
+      <nav class="nav" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="/About_Us">About Us</a>
+          <a href="/Service">Our Services</a>
+          <!-- <a href="#contactus">Contact Us</a> -->
+          <a href="/FaQs">FAQs</a>
+        </nav>
     </div>
   </header>
 
@@ -47,8 +49,6 @@
         <p>
           PassGuard is a security-focused web application designed to help users create safer passwords and reduce the risk of account compromise in today’s digital environment. The platform provides essential tools to evaluate password strength, detect whether passwords or their hashes have appeared in known data breaches, and generate secure cryptographic hashes such as MD5, SHA-1, and SHA-256. By combining password analysis, exposure awareness, and hashing utilities in one simple interface, PassGuard aims to educate users and promote better cybersecurity practices. Our goal is to make password security accessible, practical, and easy to understand for students, developers, and everyday users.
         </p>
-
-
       </div>
 
       <div class="about-image">

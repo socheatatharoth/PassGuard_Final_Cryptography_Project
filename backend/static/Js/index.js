@@ -1,38 +1,33 @@
-// ui.js
+// index.js
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --------------------------
-       Navbar Smooth Scrolling
+       Navbar & Explore Button Smooth Scrolling
        -------------------------- */
     const navLinks = document.querySelectorAll('.nav a');
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
+    const exploreBtn = document.getElementById('exploreBtn');
 
-        // Only smooth scroll for internal anchors
-        if (href.startsWith('#')) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetEl = document.querySelector(href);
-                if (targetEl) {
-                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
-            });
+    const smoothScroll = (targetSelector, offset = 80) => {
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+            const top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
         }
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) { // Internal section
+                e.preventDefault();
+                smoothScroll(href);
+            } 
+            // External pages will navigate normally in same tab
+        });
     });
 
-    /* --------------------------
-       Explore Button Scroll
-       -------------------------- */
-    const exploreBtn = document.getElementById('exploreBtn');
     if (exploreBtn) {
-        exploreBtn.addEventListener('click', () => {
-            const features = document.querySelector('#features');
-            if (features) {
-                const top = features.getBoundingClientRect().top + window.pageYOffset - 80;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
+        exploreBtn.addEventListener('click', () => smoothScroll('#features'));
     }
 
     /* --------------------------
@@ -111,8 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
        -------------------------- */
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (media.matches) {
-        const imgs = document.querySelectorAll('.hero-image img');
-        imgs.forEach(i => { i.style.animation = 'none'; });
+        document.querySelectorAll('.hero-image img').forEach(i => { i.style.animation = 'none'; });
     }
 
     /* --------------------------

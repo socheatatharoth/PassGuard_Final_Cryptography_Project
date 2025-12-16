@@ -15,38 +15,41 @@ app = Flask(
 CORS(app)
 
 # ================== PAGE ROUTES ==================
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
+@app.route("/About_Us")
+def about_us():
+    return render_template("About_Us.html")
+
+@app.route("/Service")
+def service():
+    return render_template("Service.html")
+
+@app.route("/FaQs")
+def faqs():
+    return render_template("FaQs.html")
 
 @app.route("/password_checker")
 def password_checker():
     return render_template("password_checker.html")
 
-
 @app.route("/dictionary_check")
-def dictionary_check():
+def dictionary_check_page():
     return render_template("dictionary_check.html")
-
 
 @app.route("/Generate_Hash")
 def hash_generator():
     return render_template("Generate_Hash.html")
 
-
 # ================== API ROUTES ==================
-
-# -------- Password Strength Checker --------
 @app.route("/check_password", methods=["POST"])
 def check_password():
     data = request.get_json()
     password = data.get("password", "")
     return jsonify(analyze_password(password))
 
-
-# -------- Hash Generator API --------
 @app.route("/generate_hash", methods=["POST"])
 def generate_hash_api():
     data = request.get_json()
@@ -64,23 +67,18 @@ def generate_hash_api():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
 
-
-# -------- Dictionary / Breach Check API --------
 @app.route("/check_dictionary", methods=["POST"])
 def check_dictionary():
     data = request.get_json()
-
     breached, message = dictionary_breach_check(
         value=data.get("value", ""),
         mode=data.get("mode", "").lower(),
         algo=data.get("algo")
     )
-
     return jsonify({
         "breached": breached,
         "message": message
     })
-
 
 # ================== RUN APP ==================
 if __name__ == "__main__":

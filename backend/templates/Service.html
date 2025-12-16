@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PassGuard | Services</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../static/css/service.css" />
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner container">
+        <div class="logo">PassGuard</div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="/About_Us">About Us</a>
+          <a href="/Service">Our Services</a>
+          <!-- <a href="#contactus">Contact Us</a> -->
+          <a href="/FaQs">FAQs</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+      <!-- Features Section -->
+      <section class="features-section" id="features">
+        <h2>Our Services</h2>
+
+        <div class="features-grid">
+
+          <!-- Feature 1 -->
+          <a href="/password_checker" class="feature-link">
+            <div class="feature-item">
+              <img src="../static/images/check.png" class="feature-img" />
+              <h4>Password Check</h4>
+              <p>
+                Analyze password strength, entropy, and estimated cracking time.
+              </p>
+            </div>
+          </a>
+
+          <!-- Feature 2 -->
+          <a href="/dictionary_check" class="feature-link">
+            <div class="feature-item">
+              <img src="../static/images/dict.png" class="feature-img" />
+              <h4>Dictionary Check</h4>
+              <p>
+                Detect whether a password has appeared in leaked databases.
+              </p>
+            </div>
+          </a>
+
+          <!-- Feature 3 -->
+          <a href="/Generate_Hash" class="feature-link">
+            <div class="feature-item">
+              <img src="../static/images/hash.png" class="feature-img" />
+              <h4>Hash Generator</h4>
+              <p>
+                Convert passwords into MD5, SHA-1, and SHA-256 hashes securely.
+              </p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../static/Js/service.js"></script>
+</body>
+</html>

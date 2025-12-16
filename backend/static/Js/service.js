@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  console.log('PassGuard About Us page loaded');
+  console.log('PassGuard Services page loaded');
 });
