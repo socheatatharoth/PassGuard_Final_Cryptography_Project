@@ -1,0 +1,166 @@
+/* ----------------- Card Section ----------------- */
+.dictionary-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: flex-start; /* start from top */
+  justify-content: center;
+  padding: 120px 20px 40px 20px; /* increased top padding for both modes */
+  box-sizing: border-box;
+  transition: padding-top 0.3s ease;
+}
+
+/* ----------------- Card ----------------- */
+.dictionary-card {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 50px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+
+/* ----------------- Card Title ----------------- */
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card-title i {
+  margin-right: 10px;
+  color: #6ae3ff;
+}
+
+/* ----------------- Card Description ----------------- */
+.card-desc {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+/* ----------------- Mode Selection ----------------- */
+.mode-select {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.mode-select label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ----------------- Hash Type Dropdown ----------------- */
+.hash-type {
+  margin-bottom: 28px;
+}
+
+.hash-type label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.hash-type select {
+  width: 100%;
+  padding: 14px 40px 14px 14px; /* extra right padding to move the v arrow inside */
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  appearance: none; /* removes default styling in some browsers */
+  background: rgba(255, 255, 255, 0.05) url("data:image/svg+xml,%3Csvg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 12px center;
+  background-size: 12px;
+}
+
+/* ----------------- Input ----------------- */
+.input-group {
+  margin-bottom: 28px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* ----------------- Button ----------------- */
+.check-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 17px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+}
+
+/* ----------------- Result ----------------- */
+.result-box {
+  margin-top: 24px;
+  font-size: 16px;
+  min-height: 24px;
+  color: #ffce00;
+  word-break: break-word;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 768px) {
+  .dictionary-card {
+    max-width: 90%;
+    padding: 30px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+  }
+
+  .mode-select label,
+  .hash-type label,
+  .input-group label,
+  .hash-type select,
+  .input-group input,
+  .check-btn,
+  .result-box {
+    font-size: 14px;
+  }
+
+  .check-btn {
+    padding: 14px;
+  }
+
+  .hash-type select {
+    padding: 12px 36px 12px 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dictionary-section {
+    align-items: flex-start;
+    padding-top: 140px; /* more comfortable top spacing for large screens */
+  }
+}

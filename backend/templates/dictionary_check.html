@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionary Check</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../static/css/dictionary_check.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JS -->
+  <script src="../static/Js/dictionary_check.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo">PassGuard</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#aboutus">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#contactus">Contact Us</a>
+        <a href="#faqs">FAQs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="dictionary-section">
+      <div class="dictionary-card">
+
+        <h2 class="card-title">
+          <i class="fa-solid fa-shield-halved"></i>
+          Dictionary / Breach Check
+        </h2>
+        <!-- <p class="card-desc">
+          Check whether a password or hash has appeared in known data breaches.
+        </p> -->
+
+        <!-- Mode Selection -->
+        <div class="mode-select">
+          <label>
+            <input type="radio" name="mode" value="plaintext" checked>
+            Plaintext Password
+          </label>
+          <label>
+            <input type="radio" name="mode" value="hash">
+            Hash Password
+          </label>
+        </div>
+
+        <!-- Hash Type Dropdown -->
+        <div class="hash-type" id="hashType">
+          <label for="hashAlgo">Hash Algorithm</label>
+          <select id="hashAlgo">
+            <option value="md5">MD5</option>
+            <option value="sha1">SHA-1</option>
+            <option value="sha256">SHA-256</option>
+          </select>
+        </div>
+
+        <!-- Input -->
+        <div class="input-group">
+          <label for="passwordInput">Enter Value</label>
+          <input
+            type="text"
+            id="passwordInput"
+            placeholder="Enter password or hash"
+          />
+        </div>
+
+        <!-- Submit -->
+        <button class="check-btn" id="checkBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Check Breach
+        </button>
+
+        <!-- Result -->
+        <div class="result-box" id="resultBox"></div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

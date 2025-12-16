@@ -1,0 +1,212 @@
+/* ================= RESET / BASE ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0b1a, #1a1735, #1f1c3b);
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 140px;
+}
+
+/* ================= PASSWORD INPUT CARD ================= */
+.password-checker {
+  margin: 180px auto 60px;
+  width: 75%;
+  max-width: 960px;
+
+  background: rgba(255, 255, 255, 0.08);
+  padding: 90px 70px;
+  border-radius: 28px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+
+  text-align: center;
+}
+
+.password-checker h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.password-checker label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ================= INPUT ================= */
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.input-wrapper input {
+  width: 72%;
+  padding: 15px 18px;
+
+  font-size: 16px;
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-wrapper button {
+  margin-left: 14px;
+  padding: 14px 18px;
+
+  border-radius: 14px;
+  border: none;
+
+  background: linear-gradient(135deg, #6c5ce7, #8e7dff);
+  color: white;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.input-wrapper button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ================= HASH SECTION ================= */
+#hashSection {
+  width: 100%;
+  margin-top: 70px;
+  padding-bottom: 160px;
+  text-align: center;
+}
+
+/* ================= HASH TITLE ================= */
+.hash-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 32px;
+
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ================= HASH BUTTONS ================= */
+.hash-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.hash-btn {
+  padding: 14px 30px;
+
+  border-radius: 16px;
+  border: none;
+
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  color: #000;
+
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hash-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ================= HASH RESULT CARD ================= */
+#hashResultBox {
+  width: 82%;
+  max-width: 980px;
+  margin: 50px auto 0;
+
+  background: rgba(255, 255, 255, 0.10);
+  padding: 40px 45px;
+
+  border-radius: 26px;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+
+  display: none;
+}
+
+#hashResultBox p {
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+#hashResultBox strong {
+  color: #9be7ff;
+}
+
+/* ================= TEXTAREA ================= */
+#hashOutput {
+  width: 100%;
+  min-height: 120px;
+
+  margin-top: 18px;
+  padding: 16px 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+
+  resize: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .password-checker {
+    width: 90%;
+    padding: 70px 40px;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+  }
+
+  .hash-btn-wrapper {
+    flex-direction: column;
+  }
+
+  #hashResultBox {
+    width: 92%;
+  }
+}
