@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- NAVIGATION (YOUR ORIGINAL LOGIC) ---------- */
   const navLinks = document.querySelectorAll('.nav a');
   const logo = document.querySelector('.logo');
 
-  // Logo click → home
   if (logo) {
-    logo.addEventListener('click', (e) => {
-      e.preventDefault();
+    logo.addEventListener('click', () => {
       window.location.href = '/';
     });
   }
@@ -15,34 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
 
-      // 1️⃣ Internal anchor
       if (href.startsWith('#')) {
-        const targetEl = document.querySelector(href);
-        if (targetEl) {
+        const target = document.querySelector(href);
+        if (target) {
           e.preventDefault();
-          const top = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-          window.scrollTo({ top, behavior: 'smooth' });
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
         } else {
-          // Anchor not on this page → go to home page
           window.location.href = '/' + href;
         }
       }
+    });
+  });
 
-      // 2️⃣ Special case: Features link to home page (#features)
-      if (href === '/#features') {
-        e.preventDefault();
-        if (window.location.pathname === '/') {
-          const targetEl = document.querySelector('#features');
-          if (targetEl) {
-            const top = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }
-        } else {
-          window.location.href = '/#features';
-        }
-      }
+  /* ---------- FAQ ACCORDION ---------- */
+  const faqItems = document.querySelectorAll('.faq-item');
 
-      // 3️⃣ Other links → default navigation
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
     });
   });
 

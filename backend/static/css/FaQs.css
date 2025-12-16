@@ -1,10 +1,11 @@
-/* ---------------- Reset ---------------- */
+/* ================= RESET ================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* ================= ROOT VARIABLES ================= */
 :root {
   --bg1: #0f0c29;
   --bg2: #302b63;
@@ -13,86 +14,119 @@
   --accent-grad: linear-gradient(90deg, #00dbde, #fc00ff);
 }
 
+/* ================= PAGE BACKGROUND FIX ================= */
 html, body {
-  height: 100%;
+  min-height: 100%;
   font-family: 'Inter', sans-serif;
   color: #fff;
   background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
 }
 
-/* Container */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Page wrapper */
+/* Ensure ONE continuous background */
 .page-wrap {
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
 }
 
-/* ---------------- Header ---------------- */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 95px;
-  padding: 25px 80px;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  z-index: 1000;
+/* ================= FAQ SECTION ================= */
+.faq-section {
+  max-width: 900px;
+  margin: 100px auto 80px; /* 👈 pushes FAQ down from navbar */
+  padding: 0 16px;
 }
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 28px;
+.faq-title {
+  font-size: 36px;
   font-weight: 700;
-  background: var(--accent-grad);
-  -webkit-background-clip: text;
-  color: transparent;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Navigation */
-.nav {
+/* ================= FAQ LIST ================= */
+.faq-list {
   display: flex;
-  gap: 28px;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+/* ================= FAQ ITEM ================= */
+.faq-item {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
 }
 
-.nav a:hover {
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= QUESTION ================= */
+.faq-question {
+  width: 100%;
+  padding: 20px 26px;
+  background: none;
+  border: none;
   color: #fff;
-  border: 2px solid #fff;
-  transform: translateY(-2px);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Empty main spacing */
-.empty-main {
-  padding-top: 140px;
+.faq-question i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
 }
 
-/* ---------------- Responsive ---------------- */
+/* Rotate icon when open */
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+/* ================= ANSWER ================= */
+.faq-answer {
+  padding: 0 26px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+/* Open state */
+.faq-item.active .faq-answer {
+  max-height: 220px;
+  padding: 0 26px 22px;
+}
+
+/* ================= FOOTER FIX ================= */
+/* Makes footer blend perfectly with page */
+footer {
+  background: transparent !important;
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .header {
-    padding: 20px 30px;
+  .faq-title {
+    font-size: 28px;
   }
 
-  .nav {
-    gap: 14px;
+  .faq-question {
+    font-size: 16px;
+    padding: 18px 20px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
   }
 }
