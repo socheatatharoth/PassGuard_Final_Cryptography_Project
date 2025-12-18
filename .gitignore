@@ -1,3 +1,7 @@
-# Ignore local SSL certificates
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore SSL certificates (local dev only)
 key.pem
 cert.pem
