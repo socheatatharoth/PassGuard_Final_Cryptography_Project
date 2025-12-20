@@ -76,14 +76,28 @@ if __name__ == "__main__":<br>
         ssl_context=("cert.pem", "key.pem")<br>
     )
 
-
-Note: This setup uses SSL certificates (cert.pem and key.pem) for HTTPS. Make sure these files exist in your project directory.
+<br>
+Note: This setup uses SSL certificates (cert.pem and key.pem) for HTTPS. Make sure these files exist in your project directory.<br>
 
 Step 5: Run the Application: Start the Flask application by running:python app.py
 
-After running, open your browser and go to: https://127.0.0.1:5000 . You should see the application running locally.
+After running, open your browser and go to: https://127.0.0.1:5000 . You should see the application running locally.<br>
 
 Step6: You can use everything in our website
 
 
 4. Take Notes:
+
+# Security Weaknesses and Justification<br>
+
+- Flask Debug Mode Enabled (debug=True)<br>
+
+- Weakness: Running Flask with debug=True exposes the Werkzeug debugger, which can execute arbitrary code if accessed by an attacker.<br>
+
+- Justification: PassGuard is only run locally on the developer’s machine (127.0.0.1) and not deployed to the internet. There is no external access, so the risk is minimal. Debug mode is left enabled for development convenience, making it easier to see errors and test features during learning.<br>
+
+- Use of Weak Hash Algorithms (MD5, SHA-1)<br>
+
+- Weakness: MD5 and SHA-1 are outdated cryptographic algorithms vulnerable to collision attacks. They are considered insecure for password storage or sensitive data.<br>
+
+- Justification: In PassGuard, these algorithms are used only for demonstration purposes to show how password hashing works. No passwords are stored, and all operations happen locally. Using MD5 or SHA-1 allows students and users to observe hash differences and understand hashing concepts. For production, modern algorithms like SHA-256, bcrypt, or Argon2 should be used.<br>
