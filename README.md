@@ -13,13 +13,13 @@ PASSGUARD_FINAL/<br>
 ├── README.md                # Project documentation<br>
 │
 ├── backend/<br>
-│   ├── dictionaries/<br>         # Leaked password hash lists
+│   ├── dictionaries/         # Leaked password hash lists<br>
 │   │   ├── leaked_passwords.txt<br>
 │   │   ├── MD5_Leak.txt<br>
 │   │   ├── Sha1_Leak.txt<br>
 │   │   └── Sha256_Leak.txt<br>
 │   │
-│   ├── static/<br>               # Static frontend assets
+│   ├── static/               # Static frontend assets<br>
 │   │   ├── css/<br>
 │   │   │   ├── About_Us.css<br>
 │   │   │   ├── dictionary_check.css<br>
@@ -38,7 +38,7 @@ PASSGUARD_FINAL/<br>
 │   │       ├── index.js<br>
 │   │       └── service.js<br>
 │   │
-│   ├── templates/<br>            # HTML templates for web pages
+│   ├── templates/            # HTML templates for web pages<br>
 │   │   ├── About_Us.html<br>
 │   │   ├── dictionary_check.html<br>
 │   │   ├── FaQs.html<br>
@@ -47,12 +47,12 @@ PASSGUARD_FINAL/<br>
 │   │   ├── password_checker.html<br>
 │   │   └── Service.html<br>
 │   │
-│   └── utils/<br>                # Python utility scripts
+│   └── utils/<br>                # Python utility scripts<br>
 │       ├── __init__.py<br>
 │       ├── dictionary_utils.py<br>
 │       ├── Generate_Hash.py<br>
 │       ├── strength_utils.py<br>
-│       └── __pycache__/<br>      # Compiled Python cache files
+│       └── __pycache__/      # Compiled Python cache files<br>
 
 3. Step how to run
 
