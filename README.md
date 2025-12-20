@@ -6,11 +6,11 @@
 <br>
 PASSGUARD_FINAL/<br>
 │
-├── .gitignore                # Git configuration to ignore sensitive or unnecessary files
-├── app.py                    # Main application entry point
-├── cert.pem                # SSL certificate for HTTPS
-├── key.pem                 # SSL key for HTTPS
-├── README.md                # Project documentation
+├── .gitignore                # Git configuration to ignore sensitive or unnecessary files<br>
+├── app.py                    # Main application entry point<br>
+├── cert.pem                # SSL certificate for HTTPS<br>
+├── key.pem                 # SSL key for HTTPS<br>
+├── README.md                # Project documentation<br>
 │
 ├── backend/<br>
 │   ├── dictionaries/<br>         # Leaked password hash lists
