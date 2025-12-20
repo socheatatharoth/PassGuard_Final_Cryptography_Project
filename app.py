@@ -2,15 +2,15 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
 # ================== IMPORT UTILITIES ==================
-from backend.utils.strength_utils import analyze_password
-from backend.utils.Generate_Hash import generate_hash
-from backend.utils.dictionary_utils import dictionary_breach_check
+from project.utils.strength_utils import analyze_password
+from project.utils.Generate_Hash import generate_hash
+from project.utils.dictionary_utils import dictionary_breach_check
 
 # ================== APP CONFIG ==================
 app = Flask(
     __name__,
-    template_folder="backend/templates",
-    static_folder="backend/static"
+    template_folder="project/templates",
+    static_folder="project/static"
 )
 CORS(app)
 

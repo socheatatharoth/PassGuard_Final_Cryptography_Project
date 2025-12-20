@@ -31,7 +31,7 @@ html, body {
 /* ================= FAQ SECTION ================= */
 .faq-section {
   max-width: 900px;
-  margin: 100px auto 80px; /* 👈 pushes FAQ down from navbar */
+  margin: 100px auto 80px; 
   padding: 0 16px;
 }
 

@@ -1,4 +1,4 @@
-/* ------------------------ Base / Reset ------------------------ */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -90,7 +90,7 @@ html, body {
 }
 
 
-/* Make sure main content does not hide under header */
+
 main.container {
   padding-top: 84px;
 }
@@ -194,7 +194,7 @@ main.container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
-  align-items: stretch; /* force equal heights */
+  align-items: stretch; 
 }
 
 /* Ensure links wrap the full card height */
@@ -217,7 +217,7 @@ main.container {
   text-align: center;
   gap: 18px;
   border: 1px solid rgba(255,255,255,0.15);
-  flex: 1; /* allow equal height */
+  flex: 1;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, border-width 0.25s ease;
 }
 
@@ -233,7 +233,7 @@ main.container {
 /* Feature image */
 .feature-img {
   width: 100%;
-  height: 140px; /* same height for all images */
+  height: 140px; 
   object-fit: contain;
 }
 
@@ -241,7 +241,7 @@ main.container {
 .feature-item h4 {
   font-size: 1.5rem;
   font-weight: 700;
-  min-height: 48px; /* ensures all titles aligned */
+  min-height: 48px; 
 }
 
 /* Feature description */
@@ -249,7 +249,7 @@ main.container {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--muted);
-  min-height: 60px; /* ensures all descriptions aligned */
+  min-height: 60px; 
 }
 
 /* ------------------------ Footer ------------------------ */
@@ -276,7 +276,7 @@ main.container {
 .footer-logo {
   font-size: 32px;
   font-weight: 800;
-  background: linear-gradient(90deg, #00dbde, #fc00ff); /* exact gradient */
+  background: linear-gradient(90deg, #00dbde, #fc00ff); 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -347,3 +347,5 @@ main.container {
   .footer-right-column{text-align:center;}
   .social-icons{justify-content:center;}
 }
+
+

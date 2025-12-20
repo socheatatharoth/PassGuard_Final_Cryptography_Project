@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top, behavior: 'smooth' });
         }
     };
+    
 
     navLinks.forEach(link => {
         link.addEventListener('click', e => {
