@@ -47,7 +47,7 @@ PASSGUARD_FINAL/<br>
 │   │   ├── password_checker.html<br>
 │   │   └── Service.html<br>
 │   │
-│   └── utils/<br>                # Python utility scripts<br>
+│   └── utils/                # Python utility scripts<br>
 │       ├── __init__.py<br>
 │       ├── dictionary_utils.py<br>
 │       ├── Generate_Hash.py<br>
@@ -68,12 +68,12 @@ Install the necessary packages using pip: pip install flask flask-cors
 Step 4: Configure app.py for Local Use: Open app.py in a code editor. Locate the section that runs the app, and make sure it looks like this:
 
 # ================== RUN APP ==================
-if __name__ == "__main__":
-    app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=True,
-        ssl_context=("cert.pem", "key.pem")
+if __name__ == "__main__":<br>
+    app.run(<br>
+        host="127.0.0.1",<br>
+        port=5000,<br>
+        debug=True,<br>
+        ssl_context=("cert.pem", "key.pem")<br>
     )
 
 
